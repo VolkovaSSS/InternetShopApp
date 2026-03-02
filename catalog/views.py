@@ -1,17 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-def home(request):
-    """ Страница Home"""
 
-    return render(request, 'home.html')
+def home(request):
+    """Страница Home"""
+
+    return render(request, "home.html")
 
 
 def contact(request):
-    """ Страница Контакты"""
+    """Страница Контакты"""
 
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        message = request.POST.get('message')
+    if request.method == "POST":
+        name = request.POST.get("name")
+        message = request.POST.get("message")
         return HttpResponse(f"Спасибо, {name}! Ваше сообщение получено.")
-    return render(request, 'contacts.html')
+    return render(request, "contacts.html")
