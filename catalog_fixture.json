@@ -1,0 +1,117 @@
+[
+{
+    "model": "catalog.category",
+    "pk": 7,
+    "fields": {
+        "name": "Программные продукты 1С:Предприятие",
+        "description": "Программные продукты, разработанные фирмой 1С"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 8,
+    "fields": {
+        "name": "Лицензии 1С:Предприятие 8",
+        "description": "Электронные лицензии 1С"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 9,
+    "fields": {
+        "name": "ТАРИФЫ И СЕРВИСЫ 1С:ИТС",
+        "description": "ТАРИФЫ И СЕРВИСЫ 1С:ИТС"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+        "name": "1С:Бухгалтерия 8.Базовая версия",
+        "description": "Электронная поставка",
+        "image": "",
+        "category": 7,
+        "price": 4400.0,
+        "created_at": "2025-12-10",
+        "updated_at": "2025-12-15"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+        "name": "1С:Бухгалтерия НКО 8.",
+        "description": "Базовая версия.Электронная поставка",
+        "image": "",
+        "category": 7,
+        "price": 6000.0,
+        "created_at": "2026-01-10",
+        "updated_at": "2026-01-15"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+        "name": "1С:ЗУП 8.",
+        "description": "Зарплата и управление персоналом",
+        "image": "",
+        "category": 7,
+        "price": 6000.0,
+        "created_at": "2026-01-19",
+        "updated_at": "2026-02-15"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+        "name": "Лицензия Проф-1",
+        "description": "Клиентская лицензия на 1 рабочее место",
+        "image": "",
+        "category": 8,
+        "price": 8500.0,
+        "created_at": "2026-01-29",
+        "updated_at": "2026-02-18"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+        "name": "Лицензия Проф-5",
+        "description": "Клиентская лицензия на 5 рабочих мест",
+        "image": "",
+        "category": 8,
+        "price": 8500.0,
+        "created_at": "2026-01-29",
+        "updated_at": "2026-02-19"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+        "name": "1С-ЭДО годовой. 200",
+        "description": "1С:Электронный документооборот",
+        "image": "",
+        "category": 9,
+        "price": 2000.0,
+        "created_at": "2026-02-28",
+        "updated_at": "2026-03-02"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+        "name": "1С:Контрагент",
+        "description": "1С:Контрагент на 12 месяцев",
+        "image": "",
+        "category": 8,
+        "price": 5800.0,
+        "created_at": "2026-02-25",
+        "updated_at": "2026-03-01"
+    }
+}
+]
