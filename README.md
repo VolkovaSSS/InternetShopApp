@@ -12,9 +12,8 @@
 ## Установка
 - Клонируйте репозиторий:
 ```git clone git@github.com:VolkovaSSS/pythonProject1.git```
-- Установите зависимости:
-```pip install -r requirements.txt```
-- создайте файл .env по шаблону .env.example
+- Установите зависимости
+- создайте файл .env по шаблону .env.sample
 ## Использование
 Для использования нужно запустить файл main.py
 например: python main.py
