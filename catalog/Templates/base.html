@@ -8,7 +8,7 @@
     <title>Интернет-магазин</title>
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/css/style_menu.css" rel="stylesheet">
-    <link href="sidebars.css" rel="stylesheet">
+<!--    <link href="sidebars.css" rel="stylesheet">-->
   </head>
   <body>
     {% include 'includes/inc_symbols.html' %}
@@ -19,6 +19,8 @@
            {% include 'includes/inc_menu.html' %}
             <main class="col-lg-10 col-md-9 py-3 text-center">
                 <h2 class="mb-4 border-bottom pb-2">Интернет-магазин</h2>
+                {% block content %}
+                {% endblock %}
             </main>
          </div>
     </div>
