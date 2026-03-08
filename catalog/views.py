@@ -17,3 +17,9 @@ def contact(request):
         print(message)
         return HttpResponse(f"Спасибо, {name}! Ваше сообщение получено.")
     return render(request, "contacts.html")
+
+
+def base(request):
+    """Страница Home"""
+
+    return render(request, "base.html")
