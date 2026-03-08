@@ -24,7 +24,7 @@ def contact(request):
 def product_info(request, product_id):
     """Страница с подробной инфо о товаре"""
 
-    product = get_object_or_404(Product, id = product_id)
+    product = get_object_or_404(Product, id=product_id)
     context = {'product': product}
 
     return render(request, "product_info.html", context)
