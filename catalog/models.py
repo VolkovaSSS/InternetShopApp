@@ -30,9 +30,9 @@ class Product(models.Model):
         null=True,
         related_name="products",
     )
-    price = models.FloatField(verbose_name="Цена")
-    created_at = models.DateField(blank=True, null=True, verbose_name="Дата создания")
-    updated_at = models.DateField(blank=True, null=True, verbose_name="Дата изменения")
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
+    created_at = models.DateField(auto_now_add=True, verbose_name="Дата создания")
+    updated_at = models.DateField(auto_now=True, verbose_name="Дата изменения")
 
     class Meta:
         verbose_name = "Товар"

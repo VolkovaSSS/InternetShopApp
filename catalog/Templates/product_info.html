@@ -1,20 +1,26 @@
 {% extends 'base.html' %}
 {% load catalog_tags %}
+{% load static %}
 {% block content %}
 <div class="container">
     <h4 class="mb-4">Информация о товаре</h4>
     <div class="row">
         <div class="col-sm-6 mb-3 mb-sm-0">
             <div class="card">
+                {% if product.image %}
                 <img src="{{product.image | media_filter}}">
+                {% else %}
+                <img src="{% static 'images/1s_logo.png' %}">
+                {% endif %}
             </div>
         </div>
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{product.name}}</h5>
+                    <p class="card-text mx-1">({{product.category}})</p
                     <p class="card-text">{{product.description}}</p>
-                    <p class="fw-bold text-primary">{{product.price|floatformat }} руб.</p>
+                    <p class="fw-bold text-primary">{{product.price}} руб.</p>
                     <p class="card-text mx-1">Создано: {{product.created_at|date:"d M Y"}}</p>
                     <p class="card-text mx-1">Обновлено: {{product.updated_at|date:"d M Y"}}</p>
                     <a href="{% url 'catalog:product_list' %}" class="btn btn-outline-primary">Назад</a>
