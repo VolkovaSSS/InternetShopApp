@@ -9,12 +9,12 @@
 
 </head>
 <body>
-{% include 'includes/inc_symbols.html' %}
+{% include 'catalog/includes/inc_symbols.html' %}
 <!-- Основной контейнер на всю ширину -->
 <div class="container-fluid">
     <div class="row min-vh-100"> <!-- Минимальная высота 100% экрана для наглядности -->
 
-        {% include 'includes/inc_menu.html' %}
+        {% include 'catalog/includes/inc_menu.html' %}
         <main class="col-lg-10 col-md-9 py-3 text-center">
             <h2 class="mb-4 border-bottom pb-2">Интернет-магазин</h2>
             {% block content %}
