@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+{% load catalog_tags %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h4 class="mb-4">Информация</h4>
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card">
+                {% if object.preview %}
+                <img src="{{object.preview | media_filter}}">
+                {% else %}
+                <img src="{% static 'images/text_doc.png' %}">
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{object.title}}</h5>
+                    <p class="card-text">{{object.content}}</p>
+                    <p class="card-text mx-1">Кол-во просмотров: {{object.views_count}}</p>
+                    <p class="card-text mx-1">Создано: {{object.created_at|date:"d M Y"}}</p>
+                    <p class="card-text mx-1">
+                        {% if object.is_published %}
+                        Статья опубликована
+                        {% else %}
+                        Неопубликована
+                        {% endif %}
+                    </p>
+                    <a href="{% url 'blog:blogrecord_list' %}" class="btn btn-outline-primary">Назад</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

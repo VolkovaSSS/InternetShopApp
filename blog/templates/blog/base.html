@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мой блог</title>
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<!-- Основной контейнер на всю ширину -->
+<div class="container-fluid">
+    <div class="row min-vh-100"> <!-- Минимальная высота 100% экрана для наглядности -->
+
+        {% include 'blog/includes/inc_menu.html' %}
+        <main class="col-lg-10 col-md-9 py-3 text-center">
+<!--            <h2 class="mb-4 border-bottom pb-2">Мой блог</h2>-->
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+</div>
+<script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

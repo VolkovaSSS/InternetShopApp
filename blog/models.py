@@ -12,7 +12,9 @@ class BlogRecord(models.Model):
     )
     is_published = models.BooleanField(verbose_name="Признак публикации")
     created_at = models.DateField(auto_now_add=True, verbose_name="Дата создания")
-    views_count = models.PositiveIntegerField(default=0, verbose_name='Количество просмотров')
+    views_count = models.PositiveIntegerField(
+        default=0, verbose_name="Количество просмотров"
+    )
 
     class Meta:
         verbose_name = "Запись блога"
@@ -21,4 +23,3 @@ class BlogRecord(models.Model):
 
     def __str__(self):
         return self.title
-
