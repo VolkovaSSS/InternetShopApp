@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'catalog/base.html' %}
 {% load catalog_tags %}
 {% load static %}
 {% block content %}
@@ -6,7 +6,7 @@
     <h4 class="mb-4">Каталог товаров</h4>
     <!--    <div class="row row-cols-1  row-cols-sm-2 row-cols-md-3 g-3">-->
     <div class="row row-cols-1  row-cols-2 row-cols-3 g-3">
-        {% for product in products %}
+        {% for product in object_list %}
         <div class="card .h-100 shadow-sm mx-5">
             {% if product.image %}
             <img src="{{product.image | media_filter}}" class="w-75 p-3">
@@ -17,7 +17,7 @@
                 <h5 class="card-title">{{product.name}}</h5>
                 <p class="card-text">{{product.description|truncatechars:100}}</p>
                 <p class="fw-bold text-primary">{{product.price}} руб.</p>
-                <a href="{% url 'catalog:product_info' product.id %}" class="btn btn-outline-primary">Открыть</a>
+                <a href="{% url 'catalog:product_detail' product.id %}" class="btn btn-outline-primary">Открыть</a>
             </div>
         </div>
         {% endfor %}

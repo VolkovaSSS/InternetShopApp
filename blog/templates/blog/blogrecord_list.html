@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+{% load blog_tags %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h3 class="mb-4">Записи блога</h3>
+    <!--    <div class="row row-cols-1  row-cols-sm-2 row-cols-md-3 g-3">-->
+    <div class="row row-cols-1  row-cols-2 row-cols-3 g-3">
+        {% for blogrecord in object_list %}
+        <div class="card .h-100 shadow-sm mx-5">
+            {% if blogrecord.preview %}
+            <img src="{{blogrecord.preview | media_filter}}" class="w-75 p-3">
+            {% else %}
+            <img src="{% static 'images/text_doc.png' %}" class="w-75 p-3">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{blogrecord.title}}</h5>
+                <p class="card-text">{{blogrecord.content|truncatechars:100}}</p>
+                <p class="card-text">Количество просмотров: {{blogrecord.views_count}}</p>
+                <div class="btn-group">
+                    <a href="{% url 'blog:blogrecord_detail' blogrecord.id %}"
+                       class="btn btn-outline-primary">Просмотр</a>
+                    <a href="{% url 'blog:blogrecord_update' blogrecord.id %}"
+                       class="btn btn-outline-primary">Изменить</a>
+                    <a href="{% url 'blog:blogrecord_delete' blogrecord.id %}"
+                       class="btn btn-outline-danger">Удалить</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

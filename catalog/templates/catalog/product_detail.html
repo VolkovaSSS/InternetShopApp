@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'catalog/base.html' %}
 {% load catalog_tags %}
 {% load static %}
 {% block content %}
@@ -7,8 +7,8 @@
     <div class="row">
         <div class="col-sm-6 mb-3 mb-sm-0">
             <div class="card">
-                {% if product.image %}
-                <img src="{{product.image | media_filter}}">
+                {% if object.image %}
+                <img src="{{object.image | media_filter}}">
                 {% else %}
                 <img src="{% static 'images/1s_logo.png' %}">
                 {% endif %}
@@ -17,12 +17,12 @@
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{product.name}}</h5>
-                    <p class="card-text mx-1">({{product.category}})</p
-                    <p class="card-text">{{product.description}}</p>
-                    <p class="fw-bold text-primary">{{product.price}} руб.</p>
-                    <p class="card-text mx-1">Создано: {{product.created_at|date:"d M Y"}}</p>
-                    <p class="card-text mx-1">Обновлено: {{product.updated_at|date:"d M Y"}}</p>
+                    <h5 class="card-title">{{object.name}}</h5>
+                    <p class="card-text mx-1">({{object.category}})</p
+                    <p class="card-text">{{object.description}}</p>
+                    <p class="fw-bold text-primary">{{object.price}} руб.</p>
+                    <p class="card-text mx-1">Создано: {{object.created_at|date:"d M Y"}}</p>
+                    <p class="card-text mx-1">Обновлено: {{object.updated_at|date:"d M Y"}}</p>
                     <a href="{% url 'catalog:product_list' %}" class="btn btn-outline-primary">Назад</a>
                 </div>
             </div>
