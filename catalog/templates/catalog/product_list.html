@@ -17,7 +17,14 @@
                 <h5 class="card-title">{{product.name}}</h5>
                 <p class="card-text">{{product.description|truncatechars:100}}</p>
                 <p class="fw-bold text-primary">{{product.price}} руб.</p>
-                <a href="{% url 'catalog:product_detail' product.id %}" class="btn btn-outline-primary">Открыть</a>
+                <div class="btn-group">
+                    <a href="{% url 'catalog:product_detail' product.id %}"
+                       class="btn btn-outline-primary">Просмотр</a>
+                    <a href="{% url 'catalog:product_update' product.id %}"
+                       class="btn btn-outline-primary">Изменить</a>
+                    <a href="{% url 'catalog:product_delete' product.id %}"
+                       class="btn btn-outline-danger">Удалить</a>
+                </div>
             </div>
         </div>
         {% endfor %}
