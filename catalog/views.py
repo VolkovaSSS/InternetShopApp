@@ -28,7 +28,6 @@ class ProductCreateView(CreateView):
 
 class ProductUpdateView(UpdateView):
     model = Product
-    # fields = ["title", "content", "is_published", "preview"]
     form_class = ProductForm
     success_url = reverse_lazy("catalog:product_list")
 
