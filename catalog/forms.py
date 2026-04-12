@@ -36,21 +36,22 @@ class ProductForm(StyleFormMixine, ModelForm):
         price = self.cleaned_data.get("price", 0)
         if price < 0:
             raise ValidationError("Цена не может быть отрицательной")
-        else:
-            return price
+        return price
 
     def clean_name(self):
         name = self.cleaned_data.get("name", 0)
-        for word in SPAM_WORDS:
-            if word in name.lower():
-                raise ValidationError(f"Нельзя использовать слово-спам: {word}")
+        if name:
+            for word in SPAM_WORDS:
+                if word in name.lower():
+                    raise ValidationError(f"Нельзя использовать слово-спам: {word}")
         return name
 
     def clean_description(self):
         description = self.cleaned_data.get("description", 0)
-        for word in SPAM_WORDS:
-            if word in description.lower():
-                raise ValidationError(f"Нельзя использовать слово-спам: {word}")
+        if description:
+            for word in SPAM_WORDS:
+                if word in description.lower():
+                    raise ValidationError(f"Нельзя использовать слово-спам: {word}")
         return description
 
     def clean_image(self):
