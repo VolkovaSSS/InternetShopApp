@@ -1,0 +1,29 @@
+{% extends 'catalog/base.html' %}
+{% load catalog_tags %}
+{% block content %}
+<div class="container text-start">
+    <h3 class="mb-4t">Форма редактирования продукта</h3>
+    <div class="row">
+        <div class="col-6">
+            <form method="post" enctype="multipart/form-data">
+                <div class="card">
+                    <div class="card-body">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        {{ form.as_p }}
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-outline-primary">
+                            {% if object %}Сохранить
+                            {% else %}Создать
+                            {% endif %}
+                        </button>
+                        <a href="{% url 'catalog:product_list' %}" class="btn btn-outline-primary">Отмена</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+{% endblock %}
