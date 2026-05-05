@@ -7,21 +7,6 @@
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-            <form method="post" action="{% url 'users:logout' %}">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-light">Выйти...</button>
-            </form>
-        </li>
-        {% else %}
-        <li class="nav-item">
-            <div class="btn-group">
-                <a href="{% url 'users:login' %}" class="btn btn-light">Войти</a>
-                <a href="{% url 'users:register' %}" class="btn btn-light">Регистрация</a>
-            </div>
-        </li>
-        {% endif %}
         <li class="nav-item">
             <a href="{% url 'catalog:product_list' %}" class="nav-link text-white" aria-current="page">
                 <svg class="bi pe-none me-2" width="16" height="16">
@@ -54,8 +39,23 @@
     </ul>
     <hr>
     {% if user.is_authenticated %}
-        <p>{{ user }}</p>
+    <!--        <li class="nav-item">-->
+    <form method="post" action="{% url 'users:logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-light">Выйти...</button>
+    </form>
+    <!--        </li>-->
     {% else %}
-        <p>------------</p>
+    <!--        <li class="nav-item">-->
+    <div class="btn-group">
+        <a href="{% url 'users:login' %}" class="btn btn-light">Войти</a>
+        <a href="{% url 'users:register' %}" class="btn btn-light">Регистрация</a>
+    </div>
+    <!--        </li>-->
+    {% endif %}
+    {% if user.is_authenticated %}
+    <p>{{ user }}</p>
+    {% else %}
+    <p>------------</p>
     {% endif %}
 </nav>
