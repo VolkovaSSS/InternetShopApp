@@ -16,7 +16,7 @@ class ProductListView(ListView):
     model = Product
 
 
-class ProductDetailView(DetailView):
+class ProductDetailView(LoginRequiredMixin, DetailView):
     model = Product
 
 
@@ -52,5 +52,5 @@ class ProductDeleteView(LoginRequiredMixin, DeleteView):
         return super().form_valid(form)
 
 
-class ContactView(TemplateView):
+class ContactView(LoginRequiredMixin, TemplateView):
     template_name = "catalog/contact.html"
