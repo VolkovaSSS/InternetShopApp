@@ -6,6 +6,7 @@ from django.views.generic import (
     DeleteView,
 )
 from django.urls import reverse_lazy, reverse
+from django.contrib.auth.mixins import LoginRequiredMixin
 from blog.models import BlogRecord
 
 
@@ -17,7 +18,7 @@ class BlogRecordListView(ListView):
         return queryset.filter(is_published=True)
 
 
-class BlogRecordDetailView(DetailView):
+class BlogRecordDetailView(LoginRequiredMixin, DetailView):
     model = BlogRecord
 
     def get_object(self, queryset=None):
@@ -27,13 +28,13 @@ class BlogRecordDetailView(DetailView):
         return self.object
 
 
-class BlogRecordCreateView(CreateView):
+class BlogRecordCreateView(LoginRequiredMixin, CreateView):
     model = BlogRecord
     fields = ["title", "content", "is_published", "preview"]
     success_url = reverse_lazy("blog:blogrecord_list")
 
 
-class BlogRecordUpdateView(UpdateView):
+class BlogRecordUpdateView(LoginRequiredMixin, UpdateView):
     model = BlogRecord
     fields = ["title", "content", "is_published", "preview"]
     success_url = reverse_lazy("blog:blogrecord_list")
@@ -42,6 +43,6 @@ class BlogRecordUpdateView(UpdateView):
         return reverse("blog:blogrecord_detail", args=[self.kwargs.get("pk")])
 
 
-class BlogRecordDeleteView(DeleteView):
+class BlogRecordDeleteView(LoginRequiredMixin, DeleteView):
     model = BlogRecord
     success_url = reverse_lazy("blog:blogrecord_list")
